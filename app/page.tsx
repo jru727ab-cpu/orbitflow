@@ -1,3 +1,4 @@
+import { Activity, ArrowRight, Bot, BrainCircuit, Check, CheckCircle2, Cloud, Code2, Cpu, MessageSquareText, Package, Send, Sparkles, TrendingUp, Users, Zap } from 'lucide-react';
 import { PillarAgent } from '@/components/PillarAgent';
 
 export default function DashboardPage() {
@@ -286,47 +287,7 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          <div className="rounded-[28px] border border-slate-800 bg-slate-900/60 p-5">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex items-center gap-2">
-                <MessageSquareText className="h-5 w-5 text-cyan-300" />
-                <h3 className="text-xl font-semibold text-white">Agent chat</h3>
-              </div>
-            </div>
-
-            <div className="max-h-[440px] space-y-3 overflow-y-auto rounded-2xl border border-slate-800 bg-slate-950/70 p-3">
-              {messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`max-w-[85%] rounded-2xl px-3 py-2 text-sm leading-6 ${
-                    msg.sender === 'user'
-                      ? 'ml-auto bg-cyan-500/15 text-cyan-100'
-                      : 'border border-slate-800 bg-slate-900/80 text-slate-200'
-                  }`}
-                >
-                  {msg.text}
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-4 flex gap-3">
-              <input
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter') handleSend();
-                }}
-                placeholder="Ask the Pillar Agent anything..."
-                className="flex-1 rounded-xl border border-slate-700 bg-slate-950/70 px-4 py-3 text-slate-100 outline-none focus:border-cyan-500"
-              />
-              <button
-                onClick={handleSend}
-                className="rounded-xl bg-gradient-to-r from-cyan-400 to-violet-500 px-4 py-3 text-sm font-semibold text-slate-950"
-              >
-                Send
-              </button>
-            </div>
-          </div>
+          <PillarAgent />
         </div>
       </section>
 
